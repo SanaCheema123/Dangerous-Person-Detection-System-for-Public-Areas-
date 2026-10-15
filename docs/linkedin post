@@ -1,0 +1,50 @@
+🚀 Project Completed: Dangerous-Person Detection System for Public Areas Using YOLO11
+
+I’m excited to share the completion of an end-to-end AI-powered public-area safety monitoring system, developed using YOLO11, PyTorch, FastAPI, React, OpenCV, and ByteTrack.
+
+🎯 The Goal
+
+The system detects people in images, videos, and live camera frames and classifies detections into two operational categories:
+
+👤 Normal Person
+⚠️ Potentially Dangerous Person
+
+The second category is based on observable weapon-associated visual cues rather than assumptions about a person's intent or behavior.
+
+📊 Dataset & Model Development
+
+• 3,515 images and 6,541 annotated person instances
+• Group-aware train/validation/test splitting to reduce scene and video leakage
+• YOLO11n and YOLO11s experimentally evaluated
+• YOLO11n selected based on validation performance and efficiency
+• Hard-negative mining and fine-tuning performed to investigate false positives on challenging external scenes
+
+📈 Held-Out Test Performance — Selected YOLO11n
+
+• Precision: 89.95%
+• Recall: 74.39%
+• mAP@50: 80.94%
+• mAP@50–95: 65.42%
+
+For the potentially dangerous-person class specifically, the model achieved 95.85% precision, 97.35% recall, and 98.59% mAP@50.
+
+💻 End-to-End Application
+
+The trained model is integrated into a functional FastAPI + React application supporting:
+
+✅ Image detection with real bounding boxes and confidence scores
+✅ Uploaded-video analysis
+✅ ByteTrack-based multi-object tracking
+✅ Temporal prediction smoothing
+✅ Browser-camera monitoring
+✅ Adjustable detection confidence
+✅ Detection history
+✅ CPU-based local deployment
+
+One of the most valuable parts of this project was not simply achieving strong metrics, but analyzing failure cases and model limitations. External testing revealed contextual false positives and challenges with small, distant, occluded, and low-light pedestrians. These findings motivated a dedicated hard-negative fine-tuning experiment.
+
+This project reinforced an important principle for applied AI: a strong model is only one component of a useful system. Dataset integrity, leakage prevention, error analysis, deployment, UI integration, and responsible interpretation matter just as much.
+
+Looking forward to continuing to explore Computer Vision, Object Detection, AI Safety Systems, and real-world ML deployment. 🚀
+
+#ArtificialIntelligence #ComputerVision #YOLO11 #ObjectDetection #MachineLearning #DeepLearning #PyTorch #FastAPI #ReactJS #OpenCV #ByteTrack #AIEngineering #MLOps #ComputerVisionAI

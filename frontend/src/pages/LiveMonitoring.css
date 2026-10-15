@@ -1,0 +1,1935 @@
+/* ==================================================
+   LIVE MONITORING PAGE
+================================================== */
+
+.live-monitoring-page {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8fcfd 58%,
+      #f5fafb 100%
+    );
+
+  color: #09232c;
+
+  overflow-x: hidden;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.lm-hero {
+  position: relative;
+
+  height: 430px;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 72% 35%,
+      rgba(15, 185, 193, 0.09),
+      transparent 31%
+    ),
+    #fbfdfe;
+}
+
+
+/* ==================================================
+   HERO GRID BACKGROUND
+================================================== */
+
+.lm-grid-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.24;
+
+  background-image:
+    linear-gradient(
+      rgba(10, 160, 170, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(10, 160, 170, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    18px 18px;
+
+  mask-image:
+    linear-gradient(
+      90deg,
+      transparent 10%,
+      black 50%,
+      transparent 100%
+    );
+}
+
+
+/* ==================================================
+   HERO CONTAINER
+================================================== */
+
+.lm-hero-container {
+  width:
+    min(
+      1470px,
+      calc(100% - 82px)
+    );
+
+  height: 100%;
+
+  margin: 0 auto;
+
+  padding: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    0.82fr
+    1.18fr;
+
+  position: relative;
+}
+
+
+/* ==================================================
+   LEFT HERO CONTENT
+================================================== */
+
+.lm-hero-left {
+  position: relative;
+
+  z-index: 10;
+
+  padding-top: 35px;
+
+  margin: 0;
+}
+
+
+/* SAME FONT AS DETECTION EYEBROW */
+
+.lm-eyebrow {
+  margin:
+    0
+    0
+    8px;
+
+  font-family:
+    "Roboto Mono",
+    monospace;
+
+  font-size: 18px;
+
+  font-weight: 400;
+
+  letter-spacing: 7px;
+
+  color: #426771;
+}
+
+
+/* ==================================================
+   LIVE MONITORING TITLE
+================================================== */
+
+.lm-title {
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  font-family:
+    "Bebas Neue",
+    "Arial Narrow",
+    sans-serif;
+
+  font-weight: 400;
+
+  line-height: 0.92;
+
+  letter-spacing: 1px;
+
+  color: #08232c;
+}
+
+
+/* SAME TITLE FONT/SIZE AS DETECTION */
+
+.lm-glitch {
+  position: relative;
+
+  display: inline-block;
+
+  width: max-content;
+
+  font-family:
+    "Bebas Neue",
+    "Arial Narrow",
+    sans-serif;
+
+  font-size:
+    clamp(
+      92px,
+      8vw,
+      128px
+    );
+
+  font-weight: 400;
+
+  line-height: 0.92;
+
+  letter-spacing: 1px;
+
+  color: #08232c;
+
+  text-shadow:
+    -3px 0 rgba(5, 76, 85, 0.12),
+    3px 0 rgba(24, 189, 195, 0.14);
+}
+
+
+/* GLITCH LAYER 1 */
+
+.lm-glitch::before {
+  content:
+    attr(data-text);
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  color: #075965;
+
+  opacity: 0.22;
+
+  transform:
+    translateX(-4px);
+
+  clip-path:
+    polygon(
+      0 15%,
+      100% 15%,
+      100% 25%,
+      0 25%,
+      0 65%,
+      100% 65%,
+      100% 70%,
+      0 70%
+    );
+}
+
+
+/* GLITCH LAYER 2 */
+
+.lm-glitch::after {
+  content:
+    attr(data-text);
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  color: #16b8be;
+
+  opacity: 0.20;
+
+  transform:
+    translateX(6px);
+
+  clip-path:
+    polygon(
+      0 38%,
+      100% 38%,
+      100% 43%,
+      0 43%,
+      0 78%,
+      100% 78%,
+      100% 84%,
+      0 84%
+    );
+}
+
+
+/* ==================================================
+   HERO DESCRIPTION
+================================================== */
+
+.lm-intro {
+  max-width: 610px;
+
+  margin-top: 18px;
+
+  padding-left: 19px;
+
+  border-left:
+    3px solid
+    #12b8bd;
+
+  font-size: 16px;
+
+  line-height: 1.65;
+
+  color: #183943;
+}
+
+
+/* ==================================================
+   RIGHT HERO VISUAL
+================================================== */
+
+.lm-hero-right {
+  position: relative;
+
+  height: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  transform-style:
+    preserve-3d;
+
+  perspective: 1300px;
+}
+
+
+/* HERO IMAGE */
+
+.lm-hero-right img {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 850px;
+
+  max-width: none;
+
+  right: 15px;
+
+  bottom: -55px;
+
+  margin: 0;
+
+  padding: 0;
+
+  display: block;
+
+  object-fit: contain;
+
+  filter:
+    contrast(1.02)
+    saturate(0.93)
+    brightness(1.08)
+    drop-shadow(
+      0 20px 28px
+      rgba(1, 57, 65, 0.10)
+    );
+
+  transform:
+    rotateY(-2deg)
+    translateZ(20px);
+
+  transform-origin:
+    center center;
+
+  transition:
+    transform 0.4s ease;
+}
+
+
+.lm-hero-right:hover img {
+  transform:
+    rotateY(0deg)
+    translateY(-5px)
+    translateZ(35px);
+}
+
+
+/* HERO GLOW */
+
+.lm-hero-glow {
+  position: absolute;
+
+  width: 450px;
+
+  height: 240px;
+
+  right: 100px;
+
+  top: 20px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(21, 191, 197, 0.14);
+
+  filter:
+    blur(85px);
+
+  pointer-events: none;
+}
+
+
+/* ==================================================
+   MAIN CONTENT
+================================================== */
+
+.lm-main-section {
+  width:
+    min(
+      1470px,
+      calc(100% - 82px)
+    );
+
+  position: relative;
+
+  z-index: 20;
+
+  margin:
+    -25px
+    auto
+    60px;
+}
+
+
+/* ==================================================
+   MAIN GRID
+================================================== */
+
+.lm-main-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.85fr
+    0.85fr;
+
+  gap: 20px;
+}
+
+
+/* ==================================================
+   COMMON PANEL
+================================================== */
+
+.lm-panel {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(246, 252, 253, 0.84)
+    );
+
+  border:
+    1px solid
+    rgba(12, 171, 180, 0.32);
+
+  box-shadow:
+    0 16px 38px
+    rgba(4, 62, 69, 0.055);
+
+  backdrop-filter:
+    blur(7px);
+
+  overflow: hidden;
+
+  transform-style:
+    preserve-3d;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.lm-panel:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 22px 42px
+    rgba(4, 62, 69, 0.085);
+}
+
+
+/* VERY LIGHT TECH TEXTURE */
+
+.lm-panel::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.025;
+
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 8px,
+      #0ba7ae 9px
+    );
+}
+
+
+/* ==================================================
+   HUD CORNERS
+================================================== */
+
+.lm-corner {
+  width: 20px;
+
+  height: 20px;
+
+  position: absolute;
+
+  z-index: 20;
+
+  border-color:
+    #14bdc3;
+
+  pointer-events: none;
+}
+
+
+.lm-tl {
+  top: -2px;
+
+  left: -2px;
+
+  border-top:
+    2px solid;
+
+  border-left:
+    2px solid;
+}
+
+
+.lm-tr {
+  top: -2px;
+
+  right: -2px;
+
+  border-top:
+    2px solid;
+
+  border-right:
+    2px solid;
+}
+
+
+.lm-bl {
+  bottom: -2px;
+
+  left: -2px;
+
+  border-bottom:
+    2px solid;
+
+  border-left:
+    2px solid;
+}
+
+
+.lm-br {
+  bottom: -2px;
+
+  right: -2px;
+
+  border-bottom:
+    2px solid;
+
+  border-right:
+    2px solid;
+}
+
+
+/* ==================================================
+   PANEL HEADER
+================================================== */
+
+.lm-panel-header {
+  position: relative;
+
+  z-index: 5;
+
+  min-height: 58px;
+
+  padding:
+    0
+    18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom:
+    1px solid
+    rgba(10, 136, 146, 0.12);
+}
+
+
+/* SAME AS DETECTION PANEL TITLE */
+
+.lm-panel-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.35px;
+
+  color: #09232c;
+}
+
+
+.lm-panel-title svg {
+  width: 19px;
+
+  height: 19px;
+
+  color: #0ba7b0;
+
+  stroke-width: 1.8;
+}
+
+
+/* ==================================================
+   HEADER ACTIONS
+================================================== */
+
+.lm-header-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* ACTIVE STATUS */
+
+.lm-active-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #078c69;
+}
+
+
+.lm-active-status i {
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background:
+    #0da873;
+
+  box-shadow:
+    0 0 8px
+    rgba(13, 168, 115, 0.45);
+}
+
+
+/* CAMERA SELECT */
+
+.lm-header-actions select {
+  height: 38px;
+
+  min-width: 205px;
+
+  padding:
+    0
+    35px
+    0
+    13px;
+
+  border:
+    1px solid
+    #c9dfe2;
+
+  outline: none;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 14px;
+
+  color: #526c74;
+
+  background:
+    #f9fcfd;
+
+  cursor: pointer;
+}
+
+
+/* EXPAND BUTTON */
+
+.lm-icon-btn {
+  width: 38px;
+
+  height: 38px;
+
+  padding: 0;
+
+  border:
+    1px solid
+    #c9dfe2;
+
+  display: grid;
+
+  place-items: center;
+
+  color: #0b929c;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    0.2s ease;
+}
+
+
+.lm-icon-btn:hover {
+  color: white;
+
+  border-color:
+    #0ba7af;
+
+  background:
+    #0ba7af;
+}
+
+
+.lm-icon-btn svg {
+  width: 18px;
+
+  height: 18px;
+}
+
+
+/* ==================================================
+   LIVE FEED PANEL
+================================================== */
+
+.lm-live-feed {
+  min-height: 540px;
+}
+
+
+/* ==================================================
+   LIVE VIDEO SCREEN
+================================================== */
+
+.lm-feed-screen {
+  position: relative;
+
+  z-index: 4;
+
+  height: 460px;
+
+  margin: 14px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(18, 193, 199, 0.75);
+
+  background:
+    linear-gradient(
+      180deg,
+      #163940,
+      #09242c
+    );
+
+  box-shadow:
+    inset 0 0 25px
+    rgba(14, 200, 204, 0.07);
+}
+
+
+/* ==================================================
+   FAKE CAMERA ENVIRONMENT
+   Replace later with actual live stream
+================================================== */
+
+.lm-feed-scene {
+  position: absolute;
+
+  inset: 0;
+}
+
+
+.lm-scene-bg {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 52% 28%,
+      rgba(139, 215, 218, 0.18),
+      transparent 31%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 28, 35, 0.2),
+      rgba(24, 68, 77, 0.48)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 110px,
+      rgba(66, 139, 146, 0.13) 111px,
+      transparent 113px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 90px,
+      rgba(75, 149, 155, 0.10) 91px,
+      transparent 93px
+    );
+
+  filter:
+    contrast(1.08);
+}
+
+
+/* ==================================================
+   CAMERA TOP INFORMATION
+================================================== */
+
+.lm-feed-top {
+  position: absolute;
+
+  z-index: 15;
+
+  top: 16px;
+
+  left: 18px;
+
+  right: 18px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-family:
+    "Roboto Mono",
+    monospace;
+
+  font-size: 11px;
+
+  color: white;
+}
+
+
+.lm-feed-top > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.lm-feed-top strong {
+  font-family:
+    "Roboto Mono",
+    monospace;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing:
+    0.5px;
+}
+
+
+.lm-feed-top > div span {
+  font-family:
+    "Roboto Mono",
+    monospace;
+
+  color: #d8eeee;
+}
+
+
+/* LIVE BADGE */
+
+.lm-live-badge {
+  height: 27px;
+
+  padding:
+    0
+    10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: white !important;
+
+  background:
+    #d52b36;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    0.5px;
+
+  box-shadow:
+    0 5px 12px
+    rgba(213, 43, 54, 0.20);
+}
+
+
+.lm-live-badge svg {
+  width: 13px;
+
+  height: 13px;
+}
+
+
+/* ==================================================
+   PERSON DETECTION BOXES
+================================================== */
+
+.lm-person-box,
+.lm-threat-box {
+  position: absolute;
+
+  width: 92px;
+
+  height: 180px;
+
+  border:
+    2px solid
+    #21cbd0;
+
+  color: #dbffff;
+
+  box-shadow:
+    0 0 16px
+    rgba(33, 203, 208, 0.15);
+}
+
+
+/* SIMPLE PERSON SILHOUETTE */
+
+.lm-person-box::after,
+.lm-threat-box::after {
+  content: "";
+
+  position: absolute;
+
+  left: 25%;
+
+  bottom: 0;
+
+  width: 50%;
+
+  height: 72%;
+
+  opacity: 0.35;
+
+  background:
+    linear-gradient(
+      #81c3c5,
+      #1d5259
+    );
+
+  clip-path:
+    polygon(
+      28% 0,
+      72% 0,
+      100% 15%,
+      85% 100%,
+      15% 100%,
+      0 15%
+    );
+}
+
+
+/* DETECTION LABEL */
+
+.lm-person-box span,
+.lm-threat-box span {
+  position: absolute;
+
+  left: -2px;
+
+  top: -27px;
+
+  padding:
+    4px
+    7px;
+
+  font-family:
+    "Roboto Mono",
+    monospace;
+
+  font-size: 10px;
+
+  background:
+    rgba(3, 88, 97, 0.86);
+}
+
+
+.lm-person-box strong,
+.lm-threat-box strong {
+  position: absolute;
+
+  right: -2px;
+
+  top: -27px;
+
+  padding:
+    4px
+    6px;
+
+  font-family:
+    "Roboto Mono",
+    monospace;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  background:
+    rgba(3, 88, 97, 0.86);
+}
+
+
+/* PERSON POSITIONS */
+
+.p1 {
+  left: 14%;
+
+  bottom: 47px;
+}
+
+
+.p2 {
+  left: 40%;
+
+  bottom: 40px;
+}
+
+
+.p3 {
+  right: 13%;
+
+  bottom: 44px;
+}
+
+
+/* ==================================================
+   THREAT BOX
+================================================== */
+
+.lm-threat-box {
+  left: 59%;
+
+  bottom: 28px;
+
+  width: 110px;
+
+  height: 220px;
+
+  border-color:
+    #ff424b;
+
+  color: white;
+
+  box-shadow:
+    0 0 22px
+    rgba(255, 66, 75, 0.20);
+}
+
+
+.lm-threat-box span,
+.lm-threat-box strong {
+  background:
+    rgba(196, 32, 44, 0.92);
+}
+
+
+.lm-threat-box::after {
+  background:
+    linear-gradient(
+      #b0595e,
+      #4d2428
+    );
+}
+
+
+.lm-threat-box > svg {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 35px;
+
+  height: 35px;
+
+  top: 44%;
+
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  color:
+    #ff4e56;
+
+  filter:
+    drop-shadow(
+      0 0 7px
+      rgba(255, 78, 86, 0.45)
+    );
+}
+
+
+/* ==================================================
+   CAMERA BOTTOM INFORMATION
+================================================== */
+
+.lm-feed-bottom {
+  position: absolute;
+
+  z-index: 15;
+
+  bottom: 14px;
+
+  left: 18px;
+
+  right: 18px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-family:
+    "Roboto Mono",
+    monospace;
+
+  font-size: 10px;
+
+  letter-spacing:
+    0.4px;
+
+  color: #b7edee;
+}
+
+
+/* ==================================================
+   SCANNING LINE
+================================================== */
+
+.lm-scan-line {
+  position: absolute;
+
+  z-index: 12;
+
+  left: 0;
+
+  right: 0;
+
+  top: 8%;
+
+  height: 1px;
+
+  opacity: 0.40;
+
+  pointer-events: none;
+
+  background:
+    #4ff0ef;
+
+  box-shadow:
+    0 0 9px
+    #4ff0ef;
+
+  animation:
+    lmScan
+    5s
+    linear
+    infinite;
+}
+
+
+@keyframes lmScan {
+
+  from {
+    top: 8%;
+  }
+
+  to {
+    top: 92%;
+  }
+}
+
+
+/* ==================================================
+   RECENT DETECTIONS
+================================================== */
+
+.lm-detections {
+  min-height: 540px;
+}
+
+
+.lm-see-all {
+  padding: 0;
+
+  border: 0;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #079aa4;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.lm-see-all:hover {
+  color: #055f68;
+}
+
+
+/* ==================================================
+   DETECTION LIST
+================================================== */
+
+.lm-detection-list {
+  position: relative;
+
+  z-index: 4;
+
+  padding:
+    8px
+    14px;
+}
+
+
+.lm-detection-item {
+  min-height: 84px;
+
+  display: grid;
+
+  grid-template-columns:
+    46px
+    1fr;
+
+  gap: 12px;
+
+  align-items: center;
+
+  border-bottom:
+    1px solid
+    #dbe7e9;
+}
+
+
+.lm-detection-item:last-child {
+  border-bottom: 0;
+}
+
+
+/* DETECTION ICON */
+
+.lm-detection-icon {
+  width: 40px;
+
+  height: 40px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+}
+
+
+.lm-detection-icon svg {
+  width: 19px;
+
+  height: 19px;
+}
+
+
+.lm-detection-icon.danger {
+  color: #ee3944;
+
+  background:
+    #ffecee;
+}
+
+
+.lm-detection-icon.warning {
+  color: #de9718;
+
+  background:
+    #fff6df;
+}
+
+
+.lm-detection-icon.safe {
+  color: #13a971;
+
+  background:
+    #e8faf3;
+}
+
+
+/* DETECTION TEXT */
+
+.lm-detection-text {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.lm-detection-text strong {
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #18343c;
+}
+
+
+.lm-detection-text span {
+  margin-top: 4px;
+
+  font-family:
+    "Roboto Mono",
+    monospace;
+
+  font-size: 10px;
+
+  color: #4490a0;
+}
+
+
+.lm-detection-text small {
+  margin-top: 4px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 12px;
+
+  color: #6d8389;
+}
+
+
+/* ==================================================
+   BOTTOM GRID
+================================================== */
+
+.lm-bottom-grid {
+  margin-top: 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr)
+    1.22fr;
+
+  gap: 16px;
+}
+
+
+/* ==================================================
+   STAT CARDS
+================================================== */
+
+.lm-stat-card,
+.lm-controls {
+  position: relative;
+
+  min-height: 135px;
+
+  border:
+    1px solid
+    rgba(13, 167, 176, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.95),
+      rgba(247,252,253,0.82)
+    );
+
+  box-shadow:
+    0 10px 25px
+    rgba(5, 58, 65, 0.04);
+}
+
+
+.lm-stat-card {
+  padding: 22px;
+
+  display: flex;
+
+  gap: 16px;
+
+  align-items: flex-start;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.lm-stat-card:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 17px 30px
+    rgba(5, 58, 65, 0.07);
+}
+
+
+.lm-stat-card > svg {
+  width: 29px;
+
+  height: 29px;
+
+  color: #0aaab2;
+
+  stroke-width: 1.7;
+}
+
+
+.lm-stat-card.danger > svg {
+  color: #ef3b45;
+}
+
+
+.lm-stat-card div {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* SAME BARLOW FONT AS DETECTION PANELS */
+
+.lm-stat-card span {
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing:
+    0.3px;
+
+  color: #607980;
+}
+
+
+.lm-stat-card strong {
+  margin-top: 6px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  color: #092933;
+}
+
+
+.lm-stat-card small {
+  margin-top: 10px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 12px;
+
+  color: #789096;
+}
+
+
+/* ==================================================
+   CONTROLS
+================================================== */
+
+.lm-controls {
+  padding: 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 10px;
+}
+
+
+/* START BUTTON */
+
+.lm-start-btn,
+.lm-settings-btn {
+  height: 48px;
+
+  border: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  letter-spacing:
+    0.25px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.lm-start-btn {
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      #16c3c4,
+      #087781
+    );
+
+  box-shadow:
+    0 11px 24px
+    rgba(8, 119, 129, 0.16);
+}
+
+
+.lm-start-btn:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 16px 27px
+    rgba(8, 119, 129, 0.22);
+}
+
+
+.lm-start-btn.running {
+  background:
+    linear-gradient(
+      90deg,
+      #0da778,
+      #08705c
+    );
+}
+
+
+/* SETTINGS BUTTON */
+
+.lm-settings-btn {
+  color: #27515a;
+
+  border:
+    1px solid
+    #cadfe2;
+
+  background: white;
+}
+
+
+.lm-settings-btn:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    #12aeb5;
+
+  color:
+    #087781;
+
+  box-shadow:
+    0 9px 18px
+    rgba(7, 111, 120, 0.08);
+}
+
+
+.lm-start-btn svg,
+.lm-settings-btn svg {
+  width: 18px;
+
+  height: 18px;
+
+  stroke-width: 1.8;
+}
+
+
+/* ==================================================
+   RESPONSIVE — TABLET
+================================================== */
+
+@media (max-width: 1200px) {
+
+  .lm-hero-container,
+  .lm-main-section {
+    width:
+      calc(100% - 50px);
+  }
+
+
+  .lm-hero-right img {
+    width: 730px;
+
+    right: -10px;
+
+    bottom: -45px;
+  }
+
+
+  .lm-main-grid {
+    grid-template-columns:
+      1.55fr
+      0.85fr;
+  }
+
+
+  .lm-bottom-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .lm-controls {
+    grid-column:
+      1 / -1;
+  }
+}
+
+
+/* ==================================================
+   RESPONSIVE — SMALL TABLET
+================================================== */
+
+@media (max-width: 850px) {
+
+  .lm-hero {
+    height: auto;
+
+    min-height: 650px;
+  }
+
+
+  .lm-hero-container {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .lm-hero-left {
+    padding-top: 30px;
+  }
+
+
+  .lm-hero-right {
+    height: 320px;
+  }
+
+
+  .lm-hero-right img {
+    width: 650px;
+
+    right: 50%;
+
+    bottom: -30px;
+
+    transform:
+      translateX(50%);
+  }
+
+
+  .lm-hero-right:hover img {
+    transform:
+      translateX(50%)
+      translateY(-5px);
+  }
+
+
+  .lm-main-section {
+    margin-top: -15px;
+  }
+
+
+  .lm-main-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .lm-detections {
+    min-height: auto;
+  }
+
+
+  .lm-bottom-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+/* ==================================================
+   RESPONSIVE — MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+  .lm-hero-container,
+  .lm-main-section {
+    width:
+      calc(100% - 28px);
+  }
+
+
+  .lm-hero {
+    min-height: 610px;
+  }
+
+
+  .lm-hero-left {
+    padding-top: 25px;
+  }
+
+
+  .lm-eyebrow {
+    font-size: 14px;
+
+    letter-spacing: 4px;
+  }
+
+
+  .lm-glitch {
+    font-size:
+      clamp(
+        70px,
+        22vw,
+        95px
+      );
+  }
+
+
+  .lm-intro {
+    font-size: 14px;
+  }
+
+
+  .lm-hero-right {
+    height: 270px;
+  }
+
+
+  .lm-hero-right img {
+    width: 520px;
+
+    bottom: -20px;
+  }
+
+
+  .lm-main-section {
+    margin-top: -8px;
+  }
+
+
+  .lm-panel-header {
+    padding:
+      12px
+      14px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+
+  .lm-header-actions {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+
+  .lm-header-actions select {
+    min-width: 0;
+
+    flex: 1;
+  }
+
+
+  .lm-feed-screen {
+    height: 370px;
+
+    margin: 10px;
+  }
+
+
+  .lm-person-box {
+    width: 65px;
+
+    height: 145px;
+  }
+
+
+  .lm-threat-box {
+    width: 75px;
+
+    height: 175px;
+  }
+
+
+  .p1 {
+    left: 8%;
+  }
+
+
+  .p2 {
+    left: 37%;
+  }
+
+
+  .p3 {
+    right: 7%;
+  }
+
+
+  .lm-threat-box {
+    left: 58%;
+  }
+
+
+  .lm-bottom-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .lm-controls {
+    grid-column: auto;
+  }
+}
+/* Real browser-camera monitoring */
+.real-live-stage{position:relative;min-height:430px;background:#061319;overflow:hidden;display:flex;align-items:center;justify-content:center}.real-live-stage video{width:100%;height:100%;min-height:430px;object-fit:contain}.real-live-stage canvas{position:absolute;inset:0;margin:auto;pointer-events:none}.camera-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(4,18,24,.94);color:#d7e7e7}.camera-placeholder svg{width:48px;height:48px}.camera-placeholder span{opacity:.65;font-size:12px}.live-real-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px}.live-real-stats>div{display:flex;align-items:center;gap:8px;padding:12px;border:1px solid rgba(24,197,158,.25)}.live-real-stats strong{margin-left:auto;font-size:22px}.live-real-stats .danger{border-color:rgba(255,59,79,.5)}.no-live-detections{padding:24px;opacity:.65;font-size:13px}.live-confidence{display:flex;flex-direction:column;gap:5px;font-size:11px;min-width:180px}.live-confidence input{width:100%}.lm-live-badge.active{opacity:1}.lm-detection-item.danger{border-left:3px solid #ff3b4f}.lm-detection-item.safe{border-left:3px solid #18c59e}@media(max-width:800px){.real-live-stage,.real-live-stage video{min-height:280px}}
