@@ -1,5 +1,9 @@
 # Dangerous Person Detection System for Public Areas Using YOLO11
 
+
+https://github.com/user-attachments/assets/27d708e8-474b-47d5-adcd-76ab6c914f65
+
+
 An AI-based public-area safety monitoring system developed using **YOLO11**, **FastAPI**, **React**, and **ByteTrack**.
 
 The system detects people in images, uploaded videos, and camera frames and classifies each detected person into one of two operational categories:
